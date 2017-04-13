@@ -1,6 +1,6 @@
 {
     "name": "cxlt-vue2-toastr",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "vue2 toastr component",
     "author": "Bob Tian <chengxulvtu@126.com>",
     "private": false,
@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "animate.css": "^3.5.2",
+        "merge": "^1.2.0",
         "toastr": "^2.1.2",
         "vue": "^2.2.2"
     },

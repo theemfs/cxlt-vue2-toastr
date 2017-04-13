@@ -7,12 +7,12 @@
              aria-live="polite"
              role="alert">
             <div class="toast"
-                 :class="['toast-'+type]">
+                 :class="['toast-'+innerToastr.type]">
                 <button class="toast-close-button"
                         role="button"
                         @click="hideToastr">×</button>
-                <div class="toast-title">{{title}}</div>
-                <div class="toast-message">{{message}}</div>
+                <div class="toast-title">{{innerToastr.title}}</div>
+                <div class="toast-message">{{innerToastr.message}}</div>
             </div>
         </div>
     </transition>
@@ -20,12 +20,12 @@
 
 
 <script>
-
 export default {
     name: 'CxltToastr',
     data: () => {
         return {
-            innerShow: false
+            innerShow: false,
+            innerToastr: {}
         }
     },
     props: {
@@ -33,45 +33,31 @@ export default {
             type: Boolean,
             default: false
         },
-        title: {
-            type: String
-        },
-        message: {
-            type: String
-        },
-        type: {
-            type: String,
-            default: 'success'
-        },
-        position: {
-            type: String,
-            default: 'top center'
-        },
-        timeOut: {
-            type: Number,
-            default: 5000
-        },
-        showMethod: {
-            type: String,
-            default: 'fadeIn'
-        },
-        hideMethod: {
-            type: String,
-            default: 'fadeOut'
+        toastr: {
+            type: Object,
+            required: true,
+            default: {}
         }
     },
     created() {
         this.innerShow = this.show
+        this.innerToastr = Object.assign({
+            type: 'success',
+            position: 'top center',
+            timeOut: 5000,
+            showMethod: 'fadeIn',
+            hideMethod: 'fadeOut'
+        }, this.$cxltToastrOptions, this.toastr)
     },
     computed: {
         positionClass() {
-            return this.position.split(' ').join('-')
+            return this.innerToastr.position.split(' ').join('-')
         },
         enterActiveClass() {
-            return 'animated ' + this.showMethod
+            return 'animated ' + this.innerToastr.showMethod
         },
         leaveActiveClass() {
-            return 'animated ' + this.hideMethod
+            return 'animated ' + this.innerToastr.hideMethod
         }
     },
     methods: {
@@ -89,7 +75,7 @@ export default {
                 if (this.sto) {
                     clearTimeout(this.sto)
                 }
-                this.sto = setTimeout(this.hideToastr, this.timeOut)
+                this.sto = setTimeout(this.hideToastr, this.innerToastr.timeOut)
             }
             this.$emit('show-change', newVal)
         }

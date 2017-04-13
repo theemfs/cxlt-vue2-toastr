@@ -1,12 +1,7 @@
 <template>
     <div>
-        <cxlt-toastr :title="'成功了'"
-                     :message="'保存角色成功'"
-                     :position="'top right'"
-                     :type="'info'"
-                     :show="show"
-                     :showMethod="'bounceIn'"
-                     :hideMethod="'bounceOut'"
+        <cxlt-toastr :show="show"
+                     :toastr="toastr"
                      @show-change="showChange"></cxlt-toastr>
         <button @click="switchShow">click me</button>
     </div>
@@ -18,7 +13,12 @@ export default {
     name: 'App',
     data: () => {
         return {
-            show: false
+            show: false,
+            toastr: {
+                title: '成功提示',
+                message: '保存角色成功',
+                position: 'top left'
+            }
         }
     },
     methods: {
