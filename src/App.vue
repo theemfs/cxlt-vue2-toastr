@@ -18,16 +18,19 @@ export default {
                 // title: '成功提示',
                 // message: '保存角色成功',
                 // position: 'top left'
+                title: ''
             }
         }
     },
     methods: {
         switchShow() {
             this.show = !this.show
-            this.toastr = {
-                title: '提示',
-                message: '保存角色成功'
-            }
+            // this.toastr = {
+            //     title: '提示',
+            //     message: '保存角色成功'
+            // }
+            this.toastr.title = '提示'
+            this.toastr.message = '保存角色成功'
         },
         showChange(show) {
             if (this.show !== show) {

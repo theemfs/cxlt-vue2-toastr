@@ -79,8 +79,11 @@ export default {
             }
             this.$emit('show-change', newVal)
         },
-        toastr(newVal) {
-            this.innerToastr = Object.assign(this.innerToastr, newVal)
+        toastr: {
+            handler: function (newVal) {
+                this.innerToastr = Object.assign(this.innerToastr, newVal)
+            },
+            deep: true
         }
     }
 }
