@@ -78,6 +78,9 @@ export default {
                 this.sto = setTimeout(this.hideToastr, this.innerToastr.timeOut)
             }
             this.$emit('show-change', newVal)
+        },
+        toastr(newVal) {
+            this.innerToastr = Object.assign(this.innerToastr, newVal)
         }
     }
 }

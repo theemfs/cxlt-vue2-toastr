@@ -15,15 +15,19 @@ export default {
         return {
             show: false,
             toastr: {
-                title: '成功提示',
-                message: '保存角色成功',
-                position: 'top left'
+                // title: '成功提示',
+                // message: '保存角色成功',
+                // position: 'top left'
             }
         }
     },
     methods: {
         switchShow() {
             this.show = !this.show
+            this.toastr = {
+                title: '提示',
+                message: '保存角色成功'
+            }
         },
         showChange(show) {
             if (this.show !== show) {
