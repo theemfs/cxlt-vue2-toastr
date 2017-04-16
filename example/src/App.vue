@@ -84,7 +84,7 @@
                             <input type="radio"
                                    name="position"
                                    v-model="toastr.position"
-                                   value="bottom left"> Top Left
+                                   value="top left"> Top Left
                         </label>
                         <label class="radio">
                             <input type="radio"
