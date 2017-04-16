@@ -28,7 +28,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         path: config.build.assetsRoot,
         filename: utils.assetsPath('js/[name].js'),
         // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-        library: 'cxlt-vue2-table',
+        library: 'cxlt-vue2-toastr',
         libraryTarget: 'umd'
     },
     plugins: [

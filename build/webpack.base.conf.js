@@ -9,7 +9,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-
+        'cxlt-vue2-toastr': './src/main.js'
     },
     output: {
         path: config.build.assetsRoot,
