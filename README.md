@@ -1,6 +1,8 @@
 # cxlt-vue2-toastr
 **cxlt-vue2-toastr**是弹出提示的Vue2组件，基于[toastr](https://github.com/CodeSeven/toastr)的样式和[animate.css](https://github.com/daneden/animate.css)的动画效果。
 
+**Demo** [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
+
 ## 安装
 
 使用npm
@@ -19,7 +21,7 @@ import CxltToastr from 'cxlt-vue2-toastr'
 
 Vue.use(CxltToastr)
 ```
-也可以传入一个全局配置对象
+还可以传入一个全局配置对象
 ```javascript
 var toastrConfigs = {
     position: 'top right',
@@ -166,8 +168,8 @@ toastr是一个对象，用于控制toastr显示的标题、内容、位置等�
   * `slideOutUp`
 
 ## Demo
+[https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
 
-[]()
 ![Demo截图](demo_screen.png)
 
 ## 运行程序
@@ -179,11 +181,14 @@ yarn
 npm run dev
 ```
 
-## 运行Demo程序
+## 运行Demo
 
 ```bash
 cd example
 yarn
 npm run dev
 ```
+## 有问题找我
+可以直接issue给我，也可以关注我的个人公众号
 
+<img src="./qrcode_for_chengxulvtu.jpg" title="程序旅途公众号二维码" width="150"/>
