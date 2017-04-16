@@ -1,6 +1,8 @@
 <template>
     <transition :enter-active-class="enterActiveClass"
-                :leave-active-class="leaveActiveClass">
+                :leave-active-class="leaveActiveClass"
+                @before-enter="beforeEnter"
+                @before-leave="beforeLeave">
         <div v-if="innerShow"
              id="toast-container"
              :class="['toast-'+positionClass]"
@@ -10,7 +12,8 @@
                  :class="['toast-'+innerToastr.type]">
                 <button class="toast-close-button"
                         role="button"
-                        @click="hideToastr">×</button>
+                        @click="hideToastr"
+                        v-if="innerToastr.closeButton">×</button>
                 <div class="toast-title">{{innerToastr.title}}</div>
                 <div class="toast-message">{{innerToastr.message}}</div>
             </div>
@@ -44,9 +47,13 @@ export default {
         this.innerToastr = Object.assign({
             type: 'success',
             position: 'top center',
+            closeButton: true,
             timeOut: 5000,
             showMethod: 'fadeIn',
-            hideMethod: 'fadeOut'
+            hideMethod: 'fadeOut',
+            showDuration: null,
+            hideDuration: null,
+            delay: 0
         }, this.$cxltToastrOptions, this.toastr)
     },
     computed: {
@@ -61,14 +68,34 @@ export default {
         }
     },
     methods: {
+        showToastr() {
+            this.innerShow = true
+        },
         hideToastr() {
             this.innerShow = false
+        },
+        beforeEnter(el) {
+            if (this.innerToastr.showDuration) {
+                el.style.animationDuration = this.innerToastr.showDuration + 'ms'
+            }
+            // if (this.innerToastr.delay) {
+            //     el.style.animationDelay = this.innerToastr.delay + 'ms'
+            // }
+        },
+        beforeLeave(el) {
+            if (this.innerToastr.hideDuration) {
+                el.style.animationDuration = this.innerToastr.hideDuration + 'ms'
+            }
         }
     },
     sto: null,
     watch: {
         show(newVal) {
-            this.innerShow = newVal
+            if (newVal) {
+                setTimeout(() => this.showToastr(), this.innerToastr.delay)
+            } else {
+                this.hideToastr()
+            }
         },
         innerShow(newVal) {
             if (newVal) {

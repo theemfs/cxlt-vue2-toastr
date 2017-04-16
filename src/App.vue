@@ -18,7 +18,11 @@ export default {
                 // title: '成功提示',
                 // message: '保存角色成功',
                 // position: 'top left'
-                title: ''
+                title: '',
+                closeButton: true,
+                timeOut: 5000,
+                showDuration: 5000,
+                delay: 3000
             }
         }
     },
