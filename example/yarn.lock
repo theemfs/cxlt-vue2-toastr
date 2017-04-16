@@ -1232,9 +1232,9 @@ csso@~2.3.1:
     clap "^1.0.9"
     source-map "^0.5.3"
 
-cxlt-vue2-toastr@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/cxlt-vue2-toastr/-/cxlt-vue2-toastr-0.0.4.tgz#98b4921cefb1153aa14e5aa713acc1360d2e84a7"
+cxlt-vue2-toastr@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/cxlt-vue2-toastr/-/cxlt-vue2-toastr-0.0.5.tgz#2cdb0fd5501a44da67f9ce01ec403eab37467f4f"
   dependencies:
     animate.css "^3.5.2"
     merge "^1.2.0"

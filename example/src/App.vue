@@ -15,7 +15,8 @@
                 <div class="field">
                     <label class="label">Message</label>
                     <p class="control">
-                        <textarea class="textarea" v-model="toastr.message"
+                        <textarea class="textarea"
+                                  v-model="toastr.message"
                                   placeholder="message"></textarea>
                     </p>
                 </div>
@@ -41,20 +42,20 @@
                         <label class="radio">
                             <input type="radio"
                                    name="type"
-                                    v-model="toastr.type"
-                                    value="info"> Info
+                                   v-model="toastr.type"
+                                   value="info"> Info
                         </label>
                         <label class="radio">
                             <input type="radio"
                                    name="type"
-                                    v-model="toastr.type"
-                                    value="warning"> Warning
+                                   v-model="toastr.type"
+                                   value="warning"> Warning
                         </label>
                         <label class="radio">
                             <input type="radio"
                                    name="type"
-                                    v-model="toastr.type"
-                                    value="error"> Error
+                                   v-model="toastr.type"
+                                   value="error"> Error
                         </label>
                     </p>
                 </div>
@@ -116,107 +117,134 @@
                 <div class="field">
                     <label class="label">Show Method</label>
                     <p class="control">
-                    <span class="select">
-                        <select v-model="toastr.showMethod">
-                            <option>bounce</option>
-                            <option>flash</option>
-                            <option>rubberBand</option>
-                            <option>shake</option>
-                            <option>headShake</option>
-                            <option>swing</option>
-                            <option>tada</option>
-                            <option>wobble</option>
-                            <option>jello</option>
-                            <option>bounceIn</option>
-                            <option>bounceInDown</option>
-                            <option>bounceInLeft</option>
-                            <option>bounceInRight</option>
-                            <option>bounceInUp</option>
-                            <option>fadeIn</option>
-                            <option>fadeInDown</option>
-                            <option>fadeInDownBig</option>
-                            <option>fadeInLeft</option>
-                            <option>fadeInLeftBig</option>
-                            <option>fadeInRight</option>
-                            <option>fadeInRightBig</option>
-                            <option>fadeInUp</option>
-                            <option>fadeInUpBig</option>
-                            <option>flipInX</option>
-                            <option>flipInY</option>
-                            <option>lightSpeedIn</option>
-                            <option>rotateIn</option>
-                            <option>rotateInDownLeft</option>
-                            <option>rotateInDownRight</option>
-                            <option>rotateInUpLeft</option>
-                            <option>rotateInUpRight</option>
-                            <option>hinge</option>
-                            <option>rollIn</option>
-                            <option>zoomIn</option>
-                            <option>zoomInDown</option>
-                            <option>zoomInLeft</option>
-                            <option>zoomInRight</option>
-                            <option>zoomInUp</option>
-                            <option>slideInDown</option>
-                            <option>slideInLeft</option>
-                            <option>slideInRight</option>
-                            <option>slideInUp</option>
-                        </select>
-                    </span>
+                        <span class="select">
+                            <select v-model="toastr.showMethod">
+                                <option>bounce</option>
+                                <option>flash</option>
+                                <option>rubberBand</option>
+                                <option>shake</option>
+                                <option>headShake</option>
+                                <option>swing</option>
+                                <option>tada</option>
+                                <option>wobble</option>
+                                <option>jello</option>
+                                <option>bounceIn</option>
+                                <option>bounceInDown</option>
+                                <option>bounceInLeft</option>
+                                <option>bounceInRight</option>
+                                <option>bounceInUp</option>
+                                <option>fadeIn</option>
+                                <option>fadeInDown</option>
+                                <option>fadeInDownBig</option>
+                                <option>fadeInLeft</option>
+                                <option>fadeInLeftBig</option>
+                                <option>fadeInRight</option>
+                                <option>fadeInRightBig</option>
+                                <option>fadeInUp</option>
+                                <option>fadeInUpBig</option>
+                                <option>flipInX</option>
+                                <option>flipInY</option>
+                                <option>lightSpeedIn</option>
+                                <option>rotateIn</option>
+                                <option>rotateInDownLeft</option>
+                                <option>rotateInDownRight</option>
+                                <option>rotateInUpLeft</option>
+                                <option>rotateInUpRight</option>
+                                <option>hinge</option>
+                                <option>rollIn</option>
+                                <option>zoomIn</option>
+                                <option>zoomInDown</option>
+                                <option>zoomInLeft</option>
+                                <option>zoomInRight</option>
+                                <option>zoomInUp</option>
+                                <option>slideInDown</option>
+                                <option>slideInLeft</option>
+                                <option>slideInRight</option>
+                                <option>slideInUp</option>
+                            </select>
+                        </span>
                     </p>
                 </div>
                 <div class="field">
                     <label class="label">Hide Method</label>
                     <p class="control">
                         <span class="select">
-                        <select v-model="toastr.hideMethod">
-                            <option>bounce</option>
-                            <option>flash</option>
-                            <option>rubberBand</option>
-                            <option>shake</option>
-                            <option>headShake</option>
-                            <option>swing</option>
-                            <option>tada</option>
-                            <option>wobble</option>
-                            <option>jello</option>
-                            <option>bounceOut</option>
-                            <option>bounceOutDown</option>
-                            <option>bounceOutLeft</option>
-                            <option>bounceOutRight</option>
-                            <option>bounceOutUp</option>
-                            <option>fadeOut</option>
-                            <option>fadeOutDown</option>
-                            <option>fadeOutDownBig</option>
-                            <option>fadeOutLeft</option>
-                            <option>fadeOutLeftBig</option>
-                            <option>fadeOutRight</option>
-                            <option>fadeOutRightBig</option>
-                            <option>fadeOutUp</option>
-                            <option>fadeOutUpBig</option>
-                            <option>flipOutX</option>
-                            <option>flipOutY</option>
-                            <option>lightSpeedOut</option>
-                            <option>rotateOut</option>
-                            <option>rotateOutDownLeft</option>
-                            <option>rotateOutDownRight</option>
-                            <option>rotateOutUpLeft</option>
-                            <option>rotateOutUpRight</option>
-                            <option>hinge</option>
-                            <option>rollOut</option>
-                            <option>zoomOut</option>
-                            <option>zoomOutDown</option>
-                            <option>zoomOutLeft</option>
-                            <option>zoomOutRight</option>
-                            <option>zoomOutUp</option>
-                            <option>slideOutDown</option>
-                            <option>slideOutLeft</option>
-                            <option>slideOutRight</option>
-                            <option>slideOutUp</option>
-                        </select>
-                                                    </span>
+                            <select v-model="toastr.hideMethod">
+                                <option>bounce</option>
+                                <option>flash</option>
+                                <option>rubberBand</option>
+                                <option>shake</option>
+                                <option>headShake</option>
+                                <option>swing</option>
+                                <option>tada</option>
+                                <option>wobble</option>
+                                <option>jello</option>
+                                <option>bounceOut</option>
+                                <option>bounceOutDown</option>
+                                <option>bounceOutLeft</option>
+                                <option>bounceOutRight</option>
+                                <option>bounceOutUp</option>
+                                <option>fadeOut</option>
+                                <option>fadeOutDown</option>
+                                <option>fadeOutDownBig</option>
+                                <option>fadeOutLeft</option>
+                                <option>fadeOutLeftBig</option>
+                                <option>fadeOutRight</option>
+                                <option>fadeOutRightBig</option>
+                                <option>fadeOutUp</option>
+                                <option>fadeOutUpBig</option>
+                                <option>flipOutX</option>
+                                <option>flipOutY</option>
+                                <option>lightSpeedOut</option>
+                                <option>rotateOut</option>
+                                <option>rotateOutDownLeft</option>
+                                <option>rotateOutDownRight</option>
+                                <option>rotateOutUpLeft</option>
+                                <option>rotateOutUpRight</option>
+                                <option>hinge</option>
+                                <option>rollOut</option>
+                                <option>zoomOut</option>
+                                <option>zoomOutDown</option>
+                                <option>zoomOutLeft</option>
+                                <option>zoomOutRight</option>
+                                <option>zoomOutUp</option>
+                                <option>slideOutDown</option>
+                                <option>slideOutLeft</option>
+                                <option>slideOutRight</option>
+                                <option>slideOutUp</option>
+                            </select>
+                                                        </span>
                     </p>
                 </div>
             </div>
             <div class="column">
+                <div class="field">
+                    <label class="label">Show duration</label>
+                    <p class="control">
+                        <input class="input"
+                               type="text"
+                               placeholder="show duration"
+                               v-model="toastr.showDuration">
+                    </p>
+                </div>
+                <div class="field">
+                    <label class="label">Hide duration</label>
+                    <p class="control">
+                        <input class="input"
+                               type="text"
+                               placeholder="hide duration"
+                               v-model="toastr.hideDuration">
+                    </p>
+                </div>
+                <div class="field">
+                    <label class="label">Delay</label>
+                    <p class="control">
+                        <input class="input"
+                               type="text"
+                               placeholder="delay"
+                               v-model="toastr.delay">
+                    </p>
+                </div>
                 <div class="field">
                     <label class="label">Time out</label>
                     <p class="control">
@@ -253,11 +281,14 @@ export default {
             toastr: {
                 title: 'Toastr Notification',
                 message: 'Gnome & Growl type non-blocking notifications',
-                type:'success',
+                type: 'success',
                 position: 'top right',
-                showMethod:'fadeIn',
-                hideMethod:'fadeOut',
-                timeOut:'5000'
+                showMethod: 'fadeIn',
+                hideMethod: 'fadeOut',
+                showDuration: 1000,
+                hideDuration: 1000,
+                delay: 0,
+                timeOut: '5000'
             }
         }
     },
