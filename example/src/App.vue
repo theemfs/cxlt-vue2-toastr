@@ -24,7 +24,7 @@
                     <p class="control">
                         <label class="checkbox">
                             <input type="checkbox"
-                                   checked> Close Button
+                                   v-model="toastr.closeButton"> Close Button
                         </label>
                     </p>
                 </div>
@@ -118,102 +118,140 @@
                     <label class="label">Show Method</label>
                     <p class="control">
                         <span class="select">
-                            <select v-model="toastr.showMethod">
-                                <option>bounce</option>
-                                <option>flash</option>
-                                <option>rubberBand</option>
-                                <option>shake</option>
-                                <option>headShake</option>
-                                <option>swing</option>
-                                <option>tada</option>
-                                <option>wobble</option>
-                                <option>jello</option>
-                                <option>bounceIn</option>
-                                <option>bounceInDown</option>
-                                <option>bounceInLeft</option>
-                                <option>bounceInRight</option>
-                                <option>bounceInUp</option>
-                                <option>fadeIn</option>
-                                <option>fadeInDown</option>
-                                <option>fadeInDownBig</option>
-                                <option>fadeInLeft</option>
-                                <option>fadeInLeftBig</option>
-                                <option>fadeInRight</option>
-                                <option>fadeInRightBig</option>
-                                <option>fadeInUp</option>
-                                <option>fadeInUpBig</option>
-                                <option>flipInX</option>
-                                <option>flipInY</option>
-                                <option>lightSpeedIn</option>
-                                <option>rotateIn</option>
-                                <option>rotateInDownLeft</option>
-                                <option>rotateInDownRight</option>
-                                <option>rotateInUpLeft</option>
-                                <option>rotateInUpRight</option>
-                                <option>hinge</option>
-                                <option>rollIn</option>
-                                <option>zoomIn</option>
-                                <option>zoomInDown</option>
-                                <option>zoomInLeft</option>
-                                <option>zoomInRight</option>
-                                <option>zoomInUp</option>
-                                <option>slideInDown</option>
-                                <option>slideInLeft</option>
-                                <option>slideInRight</option>
-                                <option>slideInUp</option>
-                            </select>
-                        </span>
+                                    <select v-model="toastr.showMethod">
+                                        <optgroup label="Attention Seekers">
+                                        <option>bounce</option>
+                                        <option>flash</option>
+                                        <option>rubberBand</option>
+                                        <option>shake</option>
+                                        <option>headShake</option>
+                                        <option>swing</option>
+                                        <option>tada</option>
+                                        <option>wobble</option>
+                                        <option>jello</option>
+                                        </optgroup>
+                                        <optgroup label="Bouncing Entrances">
+                                        <option>bounceIn</option>
+                                        <option>bounceInDown</option>
+                                        <option>bounceInLeft</option>
+                                        <option>bounceInRight</option>
+                                        <option>bounceInUp</option>
+                                        </optgroup>
+                                      <optgroup label="Fading Entrances">
+                                        <option>fadeIn</option>
+                                        <option>fadeInDown</option>
+                                        <option>fadeInDownBig</option>
+                                        <option>fadeInLeft</option>
+                                        <option>fadeInLeftBig</option>
+                                        <option>fadeInRight</option>
+                                        <option>fadeInRightBig</option>
+                                        <option>fadeInUp</option>
+                                        <option>fadeInUpBig</option>
+                                      </optgroup>
+                                      <optgroup label="Flippers">
+                                        <option>flip</option>
+                                        <option>flipInX</option>
+                                        <option>flipInY</option>
+                                      </optgroup>
+                                      <optgroup label="Lightspeed">
+                                        <option>lightSpeedIn</option>
+                                      </optgroup>
+                                      <optgroup label="Rotating Entrances">
+                                        <option>rotateIn</option>
+                                        <option>rotateInDownLeft</option>
+                                        <option>rotateInDownRight</option>
+                                        <option>rotateInUpLeft</option>
+                                        <option>rotateInUpRight</option>
+                                      </optgroup>
+                                          <optgroup label="Sliding Entrances">
+                                        <option>slideInDown</option>
+                                        <option>slideInLeft</option>
+                                        <option>slideInRight</option>
+                                        <option>slideInUp</option>
+                                        </optgroup>
+                                        <optgroup label="Zoom Entrances">
+                                        <option>zoomIn</option>
+                                        <option>zoomInDown</option>
+                                        <option>zoomInLeft</option>
+                                        <option>zoomInRight</option>
+                                        <option>zoomInUp</option>
+                                        </optgroup>
+                                          <optgroup label="Spectials">
+                                        <option>hinge</option>
+                                        <option>rollIn</option>
+                                      </optgroup>
+                                    </select>
+                                </span>
                     </p>
                 </div>
                 <div class="field">
                     <label class="label">Hide Method</label>
                     <p class="control">
                         <span class="select">
-                            <select v-model="toastr.hideMethod">
-                                <option>bounce</option>
-                                <option>flash</option>
-                                <option>rubberBand</option>
-                                <option>shake</option>
-                                <option>headShake</option>
-                                <option>swing</option>
-                                <option>tada</option>
-                                <option>wobble</option>
-                                <option>jello</option>
-                                <option>bounceOut</option>
-                                <option>bounceOutDown</option>
-                                <option>bounceOutLeft</option>
-                                <option>bounceOutRight</option>
-                                <option>bounceOutUp</option>
-                                <option>fadeOut</option>
-                                <option>fadeOutDown</option>
-                                <option>fadeOutDownBig</option>
-                                <option>fadeOutLeft</option>
-                                <option>fadeOutLeftBig</option>
-                                <option>fadeOutRight</option>
-                                <option>fadeOutRightBig</option>
-                                <option>fadeOutUp</option>
-                                <option>fadeOutUpBig</option>
-                                <option>flipOutX</option>
-                                <option>flipOutY</option>
-                                <option>lightSpeedOut</option>
-                                <option>rotateOut</option>
-                                <option>rotateOutDownLeft</option>
-                                <option>rotateOutDownRight</option>
-                                <option>rotateOutUpLeft</option>
-                                <option>rotateOutUpRight</option>
-                                <option>hinge</option>
-                                <option>rollOut</option>
-                                <option>zoomOut</option>
-                                <option>zoomOutDown</option>
-                                <option>zoomOutLeft</option>
-                                <option>zoomOutRight</option>
-                                <option>zoomOutUp</option>
-                                <option>slideOutDown</option>
-                                <option>slideOutLeft</option>
-                                <option>slideOutRight</option>
-                                <option>slideOutUp</option>
-                            </select>
-                                                        </span>
+                                    <select v-model="toastr.hideMethod">
+                                        <optgroup label="Attention Seekers">
+                                        <option>bounce</option>
+                                        <option>flash</option>
+                                        <option>rubberBand</option>
+                                        <option>shake</option>
+                                        <option>headShake</option>
+                                        <option>swing</option>
+                                        <option>tada</option>
+                                        <option>wobble</option>
+                                        <option>jello</option>
+                                        </optgroup>
+                                        <optgroup label="Bouncing Exists">
+                                        <option>bounceOut</option>
+                                        <option>bounceOutDown</option>
+                                        <option>bounceOutLeft</option>
+                                        <option>bounceOutRight</option>
+                                        <option>bounceOutUp</option>
+                                        </optgroup>
+                                        <optgroup label="Fading Exists">
+                                        <option>fadeOut</option>
+                                        <option>fadeOutDown</option>
+                                        <option>fadeOutDownBig</option>
+                                        <option>fadeOutLeft</option>
+                                        <option>fadeOutLeftBig</option>
+                                        <option>fadeOutRight</option>
+                                        <option>fadeOutRightBig</option>
+                                        <option>fadeOutUp</option>
+                                        <option>fadeOutUpBig</option>
+                                        </optgroup>
+                                        <optgroup label="Flippers">
+                                        <option>flip</option>
+                                        <option>flipOutX</option>
+                                        <option>flipOutY</option>
+                                        </optgroup>
+                                        <optgroup label="Lightspeed">
+                                        <option>lightSpeedOut</option>
+                                        </optgroup>
+                                        <optgroup label="Rotating Exists">
+                                        <option>rotateOut</option>
+                                        <option>rotateOutDownLeft</option>
+                                        <option>rotateOutDownRight</option>
+                                        <option>rotateOutUpLeft</option>
+                                        <option>rotateOutUpRight</option>
+                                        </optgroup>
+                                    <optgroup label="Sliding Exists">
+                                        <option>slideOutDown</option>
+                                        <option>slideOutLeft</option>
+                                        <option>slideOutRight</option>
+                                        <option>slideOutUp</option>
+                                    </optgroup>
+                                    <optgroup label="Zoom Exists">
+                                        <option>zoomOut</option>
+                                        <option>zoomOutDown</option>
+                                        <option>zoomOutLeft</option>
+                                        <option>zoomOutRight</option>
+                                        <option>zoomOutUp</option>
+                                    </optgroup>
+                                     <optgroup label="Specials">
+                                        <option>hinge</option>
+                                        <option>rollOut</option>
+                                    </optgroup>
+                                    </select>
+                                </span>
                     </p>
                 </div>
             </div>
@@ -281,6 +319,7 @@ export default {
             toastr: {
                 title: 'Toastr Notification',
                 message: 'Gnome & Growl type non-blocking notifications',
+                closeButton: true,
                 type: 'success',
                 position: 'top right',
                 showMethod: 'fadeIn',
