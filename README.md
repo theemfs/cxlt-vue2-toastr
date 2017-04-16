@@ -14,13 +14,13 @@ yarn add cxlt-vue2-toastr
 
 ## 用法
 ### 注册组件
-```bash
+```javascript
 import CxltToastr from 'cxlt-vue2-toastr'
 
 Vue.use(CxltToastr)
 ```
 也可以传入一个全局配置对象
-```bash
+```javascript
 var toastrConfigs = {
     position: 'top right',
     showDuration: 2000
@@ -28,33 +28,33 @@ var toastrConfigs = {
 Vue.use(CxltToastr, toastrConfigs)
 ```
 ### 引入样式
-```bash
+```javascript
 import 'cxlt-vue2-toastr/dist/cxlt-vue2-toastr.css'
 ```
 或在.vue文件中使用style
-```bash
+```javascript
 <style src="cxlt-vue2-toastr/dist/cxlt-vue2-toastr.css"></style>
 ```
 ### 使用组件
-```bash
+```javascript
 <cxlt-toastr :show="show" :toastr="toastr" @show-change="showChange"></cxlt-toastr>
 ```
 show控制toastr的显示/隐藏，默认false
 
 toastr是一个对象，用于控制toastr显示的标题、内容、位置等，下面的表格列举了toastr的属性
 
-| 属性           | 类型           | 描述  |
-| ------------- |:-------------: | -----:|
-| title         | String          | 通知的标题 |
-| message       | String          | 通知的内容 |
-| closeButton   | Boolean         | 是否显示关闭按钮，默认false |
-| type          | String          | 通知的类型，默认success    |
-| position      | String          | 通知显示的位置，默认top right |
-| showMethod    | String          | 显示动画的名称，默认fadeIn |
-| hideMethod    | String          | 隐藏动画的名称，默认fadeOut |
-| showDuration  | Number          | 显示动画持续的时间，单位ms |
-| hideDuration  | Number          | 隐藏动画持续的时间，单位ms |
-| delay         | Number          | 显示动画开始之前的延迟，单位ms |
+| 属性           | 类型            | 描述                        |
+| ------------- |:--------------: | --------------------------:|
+| title         | String          | 通知的标题                   |
+| message       | String          | 通知的内容                   |
+| closeButton   | Boolean         | 是否显示关闭按钮，默认false    |
+| type          | String          | 通知的类型，默认success       |
+| position      | String          | 通知显示的位置，默认top right  |
+| showMethod    | String          | 显示动画的名称，默认fadeIn     |
+| hideMethod    | String          | 隐藏动画的名称，默认fadeOut    |
+| showDuration  | Number          | 显示动画持续的时间，单位ms      |
+| hideDuration  | Number          | 隐藏动画持续的时间，单位ms      |
+| delay         | Number          | 显示动画开始之前的延迟，单位ms，默认0，没有延迟 |
 | timeOut       | Number          | toastr显示的时间，单位ms，默认5000 |
 
 ### type
@@ -165,4 +165,25 @@ toastr是一个对象，用于控制toastr显示的标题、内容、位置等�
   * `slideOutRight`
   * `slideOutUp`
 
+## Demo
+
+[]()
+![Demo截图](demo_screen.png)
+
+## 运行程序
+先fork项目，然后执行下面的命令
+```bash
+git clone xxx
+cd cxlt-vue2-toastr
+yarn
+npm run dev
+```
+
+## 运行Demo程序
+
+```bash
+cd example
+yarn
+npm run dev
+```
 
