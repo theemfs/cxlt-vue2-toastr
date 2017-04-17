@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="title">cxlt-vue2-table demo</h1>
+        <h1 class="title">cxlt-vue2-toastr demo</h1>
         <div class="columns">
             <div class="column">
                 <div class="field">
