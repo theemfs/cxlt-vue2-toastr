@@ -31,11 +31,11 @@ Vue.use(CxltToastr, toastrConfigs)
 ```
 ### 引入样式
 ```javascript
-import 'cxlt-vue2-toastr/dist/cxlt-vue2-toastr.css'
+import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
 ```
 或在.vue文件中使用style
 ```javascript
-<style src="cxlt-vue2-toastr/dist/cxlt-vue2-toastr.css"></style>
+<style src="cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css"></style>
 ```
 ### 使用组件
 ```javascript
