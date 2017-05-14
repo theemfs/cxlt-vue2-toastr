@@ -1,19 +1,8 @@
 <template>
-    <transition :enter-active-class="enterActiveClass"
-                :leave-active-class="leaveActiveClass"
-                @before-enter="beforeEnter"
-                @before-leave="beforeLeave">
-        <div v-if="innerShow"
-             id="toast-container"
-             :class="['toast-'+positionClass]"
-             aria-live="polite"
-             role="alert">
-            <div class="toast"
-                 :class="['toast-'+innerToastr.type]">
-                <button class="toast-close-button"
-                        role="button"
-                        @click="hideToastr"
-                        v-if="innerToastr.closeButton">×</button>
+    <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @before-leave="beforeLeave">
+        <div v-if="innerShow" id="cxlt-toast-container" :class="['toast-'+positionClass]" aria-live="polite" role="alert">
+            <div class="toast" :class="['toast-'+innerToastr.type]">
+                <button class="toast-close-button" role="button" @click="hideToastr" v-if="innerToastr.closeButton">×</button>
                 <div class="toast-title">{{innerToastr.title}}</div>
                 <div class="toast-message">{{innerToastr.message}}</div>
             </div>
@@ -54,7 +43,10 @@ export default {
             showDuration: null,
             hideDuration: null,
             delay: 0
-        }, this.$cxltToastrOptions, this.toastr)
+        }, this.toastr)
+    },
+    beforeMount() {
+        console.log('before mount')
     },
     computed: {
         positionClass() {
@@ -78,9 +70,6 @@ export default {
             if (this.innerToastr.showDuration) {
                 el.style.animationDuration = this.innerToastr.showDuration + 'ms'
             }
-            // if (this.innerToastr.delay) {
-            //     el.style.animationDelay = this.innerToastr.delay + 'ms'
-            // }
         },
         beforeLeave(el) {
             if (this.innerToastr.hideDuration) {

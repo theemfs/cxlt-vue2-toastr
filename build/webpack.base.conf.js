@@ -9,7 +9,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        'cxlt-vue2-toastr': './src/main.js'
+        'app': './example/main.js'
     },
     output: {
         path: config.build.assetsRoot,
@@ -44,7 +44,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: [resolve('src'), resolve('test')]
+                include: [resolve('example'), resolve('src'), resolve('test')]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
