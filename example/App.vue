@@ -273,7 +273,7 @@ export default {
     },
     methods: {
         showToastr() {
-            console.log(this.$toast.success())
+            this.$toast.success(this.toastr)
         },
         hideToastr() {
         }

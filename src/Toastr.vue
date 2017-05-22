@@ -1,11 +1,9 @@
 <template>
     <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @before-leave="beforeLeave">
-        <div v-if="innerShow" id="cxlt-toast-container" :class="['toast-'+positionClass]" aria-live="polite" role="alert">
-            <div class="toast" :class="['toast-'+innerToastr.type]">
-                <button class="toast-close-button" role="button" @click="hideToastr" v-if="innerToastr.closeButton">×</button>
-                <div class="toast-title">{{innerToastr.title}}</div>
-                <div class="toast-message">{{innerToastr.message}}</div>
-            </div>
+        <div class="toast" :class="['toast-'+type]" v-show="show">
+            <button class="toast-close-button" role="button" @click="hideToastr" v-if="closeButton">×</button>
+            <div class="toast-title">{{title}}</div>
+            <div class="toast-message">{{message}}</div>
         </div>
     </transition>
 </template>
@@ -16,47 +14,76 @@ export default {
     name: 'CxltToastr',
     data: () => {
         return {
-            innerShow: false,
-            innerToastr: {}
+            show: false
         }
     },
     props: {
-        show: {
-            type: Boolean,
-            default: false
+        type: {
+            type: String,
+            default: 'success'
         },
-        toastr: {
-            type: Object,
-            required: true,
-            default: {}
+        position: {
+            type: String,
+            default: 'top center'
+        },
+        title: {
+            type: String
+        },
+        message: {
+            type: String
+        },
+        closeButton: {
+            type: Boolean,
+            default: true
+        },
+        timeOut: {
+            default: '5000'
+        },
+        showMethod: {
+            type: String,
+            default: 'fadeIn'
+        },
+        hideMethod: {
+            type: String,
+            default: 'fadeOut'
+        },
+        showDuration: {
+            type: Number,
+            default: 1000
+        },
+        hideDuration: {
+            type: Number,
+            default: 1000
+        },
+        delay: {
+            type: Number,
+            default: 0
         }
     },
     created() {
-        this.innerShow = this.show
-        this.innerToastr = Object.assign({
-            type: 'success',
-            position: 'top center',
-            closeButton: true,
-            timeOut: 5000,
-            showMethod: 'fadeIn',
-            hideMethod: 'fadeOut',
-            showDuration: null,
-            hideDuration: null,
-            delay: 0
-        }, this.toastr)
     },
     beforeMount() {
-        console.log('before mount')
+        let toastContainer = document.querySelector(`.cxlt-toastr-container.toast-${this.positionClass}`)
+        if (!toastContainer) {
+            toastContainer = document.createElement('div')
+            toastContainer.classList.add('cxlt-toastr-container', `toast-${this.positionClass}`)
+            document.body.appendChild(toastContainer)
+        }
+        toastContainer.appendChild(this.$el)
+    },
+    mounted() {
+        this.show = true
+        console.log(this.title)
     },
     computed: {
         positionClass() {
-            return this.innerToastr.position.split(' ').join('-')
+            return this.position.split(' ').join('-')
         },
         enterActiveClass() {
-            return 'animated ' + this.innerToastr.showMethod
+            return 'animated ' + this.showMethod
         },
         leaveActiveClass() {
-            return 'animated ' + this.innerToastr.hideMethod
+            return 'animated ' + this.hideMethod
         }
     },
     methods: {
@@ -67,13 +94,13 @@ export default {
             this.innerShow = false
         },
         beforeEnter(el) {
-            if (this.innerToastr.showDuration) {
-                el.style.animationDuration = this.innerToastr.showDuration + 'ms'
+            if (this.showDuration) {
+                el.style.animationDuration = this.showDuration + 'ms'
             }
         },
         beforeLeave(el) {
-            if (this.innerToastr.hideDuration) {
-                el.style.animationDuration = this.innerToastr.hideDuration + 'ms'
+            if (this.hideDuration) {
+                el.style.animationDuration = this.hideDuration + 'ms'
             }
         }
     },
@@ -81,7 +108,7 @@ export default {
     watch: {
         show(newVal) {
             if (newVal) {
-                setTimeout(() => this.showToastr(), this.innerToastr.delay)
+                setTimeout(() => this.showToastr(), this.delay)
             } else {
                 this.hideToastr()
             }
@@ -91,20 +118,13 @@ export default {
                 if (this.sto) {
                     clearTimeout(this.sto)
                 }
-                this.sto = setTimeout(this.hideToastr, this.innerToastr.timeOut)
+                this.sto = setTimeout(this.hideToastr, this.timeOut)
             }
             this.$emit('show-change', newVal)
-        },
-        toastr: {
-            handler: function (newVal) {
-                this.innerToastr = Object.assign(this.innerToastr, newVal)
-            },
-            deep: true
         }
     }
 }
 
 </script>
-
-<style src="toastr/build/toastr.css"></style>
+<style src="@/assets/toastr.css"></style>
 <style src="animate.css/animate.css"></style>

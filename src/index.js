@@ -1,11 +1,16 @@
-// import Toastr from './Toastr'
+import Toastr from './Toastr'
 
 const install = function (Vue, options) {
     if (install.installed) return
 
     Vue.prototype.$toast = {
-        success() {
-            console.log('success')
+        success(obj) {
+            const ToastrComponent = Vue.extend(Toastr)
+            var propsData = Object.assign({}, obj)
+            return new ToastrComponent({
+                el: document.createElement('div'),
+                propsData
+            })
         },
         info() {
 
