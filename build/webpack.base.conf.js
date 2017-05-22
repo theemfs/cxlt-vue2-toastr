@@ -7,12 +7,19 @@ function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
 
+var outputPath = config.build.assetsRoot
+if (process.env.NODE_ENV === 'production') {
+
+} else {
+    outputPath = config.pack.assetsRoot
+}
+
 module.exports = {
     entry: {
         'app': './example/main.js'
     },
     output: {
-        path: config.build.assetsRoot,
+        path: outputPath,
         filename: '[name].js',
         publicPath: process.env.NODE_ENV === 'production'
             ? config.build.assetsPublicPath

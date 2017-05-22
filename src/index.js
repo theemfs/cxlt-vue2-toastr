@@ -1,29 +1,47 @@
 import Toastr from './Toastr'
+import '@/assets/toastr.css'
+import 'animate.css/animate.css'
 
 const install = function (Vue, options) {
     if (install.installed) return
 
-    Vue.prototype.$toast = {
-        success(obj) {
-            const ToastrComponent = Vue.extend(Toastr)
-            var propsData = Object.assign({}, obj)
-            return new ToastrComponent({
-                el: document.createElement('div'),
-                propsData
-            })
-        },
-        info() {
+    let showedToastrs = []
 
-        },
-        warn() {
+    function showToast(obj, type) {
+        const ToastrComponent = Vue.extend(Toastr)
+        var propsData = Object.assign(options, obj, {
+            type: type
+        })
+        let component = new ToastrComponent({
+            el: document.createElement('div'),
+            propsData
+        })
 
-        },
-        error() {
+        showedToastrs.push(component)
 
-        }
+        return component
     }
 
-    console.log(options)
+    Vue.prototype.$toast = {
+        success(obj) {
+            return showToast(obj, 'success')
+        },
+        info(obj) {
+            return showToast(obj, 'info')
+        },
+        warn(obj) {
+            return showToast(obj, 'warning')
+        },
+        error(obj) {
+            return showToast(obj, 'error')
+        },
+        removeAll() {
+            showedToastrs.forEach(c => {
+                c.hideToastr()
+            })
+            showedToastrs = []
+        }
+    }
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

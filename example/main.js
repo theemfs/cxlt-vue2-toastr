@@ -3,12 +3,9 @@ import App from './App.vue'
 
 import { install as CxltToastr } from '../src'
 
-// var toastrConfigs = {
-//     position: 'top right',
-//     showDuration: 2000
-// }
 Vue.use(CxltToastr, {
-    position: 'top right'
+    position: 'top right',
+    timeOut: '5000'
 })
 
 /* eslint-disable no-new */

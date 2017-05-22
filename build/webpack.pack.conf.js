@@ -9,10 +9,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
-var env = process.env.NODE_ENV === 'testing'
-    ? require('../config/test.env')
-    : config.build.env
-
 baseWebpackConfig.entry = {}
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -21,22 +17,22 @@ var webpackConfig = merge(baseWebpackConfig, {
     },
     module: {
         rules: utils.styleLoaders({
-            sourceMap: config.build.productionSourceMap,
+            sourceMap: config.pack.productionSourceMap,
             extract: true
         })
     },
-    devtool: config.build.productionSourceMap ? '#source-map' : false,
+    devtool: config.pack.productionSourceMap ? '#source-map' : false,
     output: {
-        path: config.build.assetsRoot,
+        path: config.pack.assetsRoot,
         filename: utils.assetsPath('js/[name].js'),
         // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-        library: 'cxlt-vue2-toastr',
+        library: 'cxltToastr',
         libraryTarget: 'umd'
     },
     plugins: [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
         new webpack.DefinePlugin({
-            'process.env': env
+            'process.env': config.pack.env
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -79,7 +75,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         new CopyWebpackPlugin([
             {
                 from: path.resolve(__dirname, '../static'),
-                to: config.build.assetsSubDirectory,
+                to: config.pack.assetsSubDirectory,
                 ignore: ['.*']
             }
         ])
@@ -89,7 +85,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }
 })
 
-if (config.build.productionGzip) {
+if (config.pack.productionGzip) {
     var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
     webpackConfig.plugins.push(
@@ -98,7 +94,7 @@ if (config.build.productionGzip) {
             algorithm: 'gzip',
             test: new RegExp(
                 '\\.(' +
-                config.build.productionGzipExtensions.join('|') +
+                config.pack.productionGzipExtensions.join('|') +
                 ')$'
             ),
             threshold: 10240,
@@ -107,7 +103,7 @@ if (config.build.productionGzip) {
     )
 }
 
-if (config.build.bundleAnalyzerReport) {
+if (config.pack.bundleAnalyzerReport) {
     var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
     webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }

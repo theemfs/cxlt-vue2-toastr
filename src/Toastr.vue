@@ -1,6 +1,6 @@
 <template>
     <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @before-leave="beforeLeave">
-        <div class="toast" :class="['toast-'+type]" v-show="show">
+        <div class="toast" :class="['toast-'+type]" v-if="show">
             <button class="toast-close-button" role="button" @click="hideToastr" v-if="closeButton">×</button>
             <div class="toast-title">{{title}}</div>
             <div class="toast-message">{{message}}</div>
@@ -37,7 +37,7 @@ export default {
             default: true
         },
         timeOut: {
-            default: '5000'
+            default: '1500'
         },
         showMethod: {
             type: String,
@@ -72,8 +72,7 @@ export default {
         toastContainer.appendChild(this.$el)
     },
     mounted() {
-        this.show = true
-        console.log(this.title)
+        setTimeout(() => this.showToastr(), this.delay)
     },
     computed: {
         positionClass() {
@@ -88,10 +87,12 @@ export default {
     },
     methods: {
         showToastr() {
-            this.innerShow = true
+            this.show = true
+            this.sto = setTimeout(() => this.hideToastr(), this.timeOut)
         },
         hideToastr() {
-            this.innerShow = false
+            clearTimeout(this.sto)
+            this.show = false
         },
         beforeEnter(el) {
             if (this.showDuration) {
@@ -103,28 +104,7 @@ export default {
                 el.style.animationDuration = this.hideDuration + 'ms'
             }
         }
-    },
-    sto: null,
-    watch: {
-        show(newVal) {
-            if (newVal) {
-                setTimeout(() => this.showToastr(), this.delay)
-            } else {
-                this.hideToastr()
-            }
-        },
-        innerShow(newVal) {
-            if (newVal) {
-                if (this.sto) {
-                    clearTimeout(this.sto)
-                }
-                this.sto = setTimeout(this.hideToastr, this.timeOut)
-            }
-            this.$emit('show-change', newVal)
-        }
     }
 }
 
 </script>
-<style src="@/assets/toastr.css"></style>
-<style src="animate.css/animate.css"></style>

@@ -28,16 +28,16 @@
                     <label class="label">Toastr Type</label>
                     <p class="control">
                         <label class="radio">
-                            <input type="radio" name="type" v-model="toastr.type" value="success"> Success
+                            <input type="radio" name="type" v-model="type" value="success"> Success
                         </label>
                         <label class="radio">
-                            <input type="radio" name="type" v-model="toastr.type" value="info"> Info
+                            <input type="radio" name="type" v-model="type" value="info"> Info
                         </label>
                         <label class="radio">
-                            <input type="radio" name="type" v-model="toastr.type" value="warning"> Warning
+                            <input type="radio" name="type" v-model="type" value="warning"> Warning
                         </label>
                         <label class="radio">
-                            <input type="radio" name="type" v-model="toastr.type" value="error"> Error
+                            <input type="radio" name="type" v-model="type" value="error"> Error
                         </label>
                     </p>
                 </div>
@@ -256,26 +256,42 @@ export default {
     name: 'app',
     data() {
         return {
+            type: 'success',
             toastr: {
                 title: 'Toastr Notification',
                 message: 'Gnome & Growl type non-blocking notifications',
                 closeButton: true,
-                type: 'success',
                 position: 'top right',
                 showMethod: 'fadeIn',
                 hideMethod: 'fadeOut',
                 showDuration: 1000,
                 hideDuration: 1000,
                 delay: 0,
-                timeOut: '5000'
+                timeOut: '1500'
             }
         }
     },
     methods: {
         showToastr() {
-            this.$toast.success(this.toastr)
+            switch (this.type) {
+                case 'success':
+                    this.$toast.success(this.toastr)
+                    break;
+                case 'info':
+                    this.$toast.info(this.toastr)
+                    break;
+                case 'warning':
+                    this.$toast.warn(this.toastr)
+                    break;
+                case 'error':
+                    this.$toast.error(this.toastr)
+                    break;
+                default:
+                    break;
+            }
         },
         hideToastr() {
+            this.$toast.removeAll()
         }
     }
 }

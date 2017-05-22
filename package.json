@@ -8,6 +8,7 @@
     "scripts": {
         "dev": "node build/dev-server.js",
         "build": "node build/build.js",
+        "pack": "node build/pack.js",
         "lint": "eslint --fix --ext .js,.vue src test/unit/specs test/e2e/specs"
     },
     "dependencies": {
