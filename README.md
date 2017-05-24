@@ -39,11 +39,24 @@ import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
 ```
 ### 使用组件
 ```javascript
-<cxlt-toastr :show="show" :toastr="toastr" @show-change="showChange"></cxlt-toastr>
+this.$toast.success({
+    title:'',
+    message:''
+})
 ```
-show控制toastr的显示/隐藏，默认false
 
-toastr是一个对象，用于控制toastr显示的标题、内容、位置等，下面的表格列举了toastr的属性
+cxlt-vue2-toastr支持一下方法
+
+| 方法名         |
+| ------------- |
+| success       |
+| info          |
+| warn          |
+| error         |
+| removeAll     |
+
+
+方法需要传递一个对象，用于控制toastr显示的标题、内容、位置等，下面的表格列举了对象的属性
 
 | 属性           | 类型            | 描述                        |
 | ------------- |:--------------: | --------------------------:|
@@ -54,10 +67,10 @@ toastr是一个对象，用于控制toastr显示的标题、内容、位置等�
 | position      | String          | 通知显示的位置，默认top right  |
 | showMethod    | String          | 显示动画的名称，默认fadeIn     |
 | hideMethod    | String          | 隐藏动画的名称，默认fadeOut    |
-| showDuration  | Number          | 显示动画持续的时间，单位ms      |
-| hideDuration  | Number          | 隐藏动画持续的时间，单位ms      |
+| showDuration  | Number          | 显示动画持续的时间，单位ms，默认1000      |
+| hideDuration  | Number          | 隐藏动画持续的时间，单位ms，默认1000     |
 | delay         | Number          | 显示动画开始之前的延迟，单位ms，默认0，没有延迟 |
-| timeOut       | Number          | toastr显示的时间，单位ms，默认5000 |
+| timeOut       | Number          | toastr显示的时间，单位ms，默认1500 |
 
 ### type
 
@@ -170,7 +183,7 @@ toastr是一个对象，用于控制toastr显示的标题、内容、位置等�
 ## Demo
 [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
 
-![Demo截图](demo_screen.png)
+![Demo截图](demo.gif)
 
 ## 运行程序
 先fork项目，然后执行下面的命令
@@ -181,14 +194,6 @@ yarn
 npm run dev
 ```
 
-## 运行Demo
-
-```bash
-cd example
-yarn
-npm run dev
-```
-## 有问题找我
-可以直接issue给我，也可以关注我的个人公众号
+## 欢迎我的关注公众号
 
 <img src="./qrcode_for_chengxulvtu.jpg" title="程序旅途公众号二维码" width="150"/>
