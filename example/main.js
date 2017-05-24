@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import { install as CxltToastr } from '../src'
+import CxltToastr from '../src'
 
 Vue.use(CxltToastr, {
     position: 'top right',

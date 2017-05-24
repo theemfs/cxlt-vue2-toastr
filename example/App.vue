@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <h1 class="title">cxlt-vue2-toastr demo</h1>
+        <h1 class="title">cxlt-vue2-toastr演示</h1>
+        <hr>
         <div class="columns">
             <div class="column">
                 <div class="field">
@@ -248,6 +249,11 @@
                 <button class="button is-warning" @click="hideToastr">Hide Toastr</button>
             </p>
         </div>
+        <hr>
+        <div class="qrcode">
+            <p>欢迎关注公众号</p>
+            <img src="../qrcode_for_chengxulvtu.jpg" />
+        </div>
     </div>
 </template>
 
@@ -299,6 +305,22 @@ export default {
 
 <style src="bulma/css/bulma.css"></style>
 <style>
+h1.title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.qrcode {
+    text-align: center;
+    font-size: 14px;
+}
+
+.qrcode img {
+    width: 120px;
+    height: 120px;
+}
+
 label.radio {
     display: flex;
 }

@@ -1,7 +1,7 @@
 # cxlt-vue2-toastr
 **cxlt-vue2-toastr**是弹出提示的Vue2组件，基于[toastr](https://github.com/CodeSeven/toastr)的样式和[animate.css](https://github.com/daneden/animate.css)的动画效果。
 
-**Demo** [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
+**Demo:** [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
 
 ## 安装
 

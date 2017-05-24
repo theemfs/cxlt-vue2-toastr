@@ -2,7 +2,7 @@ import Toastr from './Toastr'
 import '@/assets/toastr.css'
 import 'animate.css/animate.css'
 
-const install = function (Vue, options) {
+let install = function (Vue, options) {
     if (install.installed) return
 
     let showedToastrs = []
@@ -48,6 +48,6 @@ if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue)
 }
 
-export {
+export default {
     install
 }
