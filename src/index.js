@@ -4,6 +4,9 @@ import 'animate.css/animate.css'
 
 const CxltToastr = {
     install: function (Vue, options) {
+        if (!options) {
+            options = {}
+        }
         let showedToastrs = []
 
         function showToast(obj, type) {
