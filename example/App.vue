@@ -297,7 +297,9 @@ export default {
             }
         },
         hideToastr() {
-            this.$toast.removeAll()
+            console.log(this.$toast)
+            // this.$toast.removeAll()
+            // console.log(this.$mytest)
         }
     }
 }
