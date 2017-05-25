@@ -45,7 +45,7 @@ this.$toast.success({
 })
 ```
 
-cxlt-vue2-toastr支持一下方法
+cxlt-vue2-toastr支持以下方法
 
 | 方法名         |
 | ------------- |
