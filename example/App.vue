@@ -323,9 +323,14 @@ h1.title {
 
 label.radio {
     display: flex;
+    align-items: center;
+}
+
+.radio input {
+    margin-right: 5px;
 }
 
 .radio+.radio {
-    margin-left: 0
+    margin-left: 0;
 }
 </style>

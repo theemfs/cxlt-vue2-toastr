@@ -66,7 +66,9 @@ export default {
         let toastContainer = document.querySelector(`.cxlt-toastr-container.toast-${this.positionClass}`)
         if (!toastContainer) {
             toastContainer = document.createElement('div')
-            toastContainer.classList.add('cxlt-toastr-container', `toast-${this.positionClass}`)
+            // 分2次添加，是为了兼容IE10
+            toastContainer.classList.add('cxlt-toastr-container')
+            toastContainer.classList.add(`toast-${this.positionClass}`)
             document.body.appendChild(toastContainer)
         }
         toastContainer.appendChild(this.$el)
