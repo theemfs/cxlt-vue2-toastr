@@ -1,6 +1,6 @@
 {
     "name": "cxlt-vue2-toastr",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "vue2 toastr component",
     "author": "Bob Tian <chengxulvtu@126.com>",
     "private": false,
