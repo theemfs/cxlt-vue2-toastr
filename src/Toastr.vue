@@ -1,5 +1,5 @@
 <template>
-    <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @before-leave="beforeLeave">
+    <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @after-enter="afterEnter" @before-leave="beforeLeave">
         <div class="toast" :class="['toast-'+type]" v-if="show">
             <button class="toast-close-button" role="button" @click="hideToastr" v-if="closeButton">×</button>
             <div class="toast-title">{{title}}</div>
@@ -48,16 +48,13 @@ export default {
             default: 'fadeOut'
         },
         showDuration: {
-            type: Number,
-            default: 1000
+            default: '1000'
         },
         hideDuration: {
-            type: Number,
-            default: 1000
+            default: '1000'
         },
         delay: {
-            type: Number,
-            default: 0
+            default: '0'
         }
     },
     created() {
@@ -97,14 +94,14 @@ export default {
             this.show = false
         },
         beforeEnter(el) {
-            if (this.showDuration) {
-                el.style.animationDuration = this.showDuration + 'ms'
-            }
+            el.style.animationDuration = this.showDuration + 'ms'
+        },
+        afterEnter(el) {
+            this.$el.classList.add('animated')
+            this.$el.classList.add('fadeIn')
         },
         beforeLeave(el) {
-            if (this.hideDuration) {
-                el.style.animationDuration = this.hideDuration + 'ms'
-            }
+            el.style.animationDuration = this.hideDuration + 'ms'
         }
     }
 }
