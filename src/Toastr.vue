@@ -1,6 +1,6 @@
 <template>
     <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @after-enter="afterEnter" @before-leave="beforeLeave">
-        <div class="toast" :class="['toast-'+type]" v-if="show">
+        <div class="toast" :class="['toast-'+type]" :style="{backgroundColor:toastBackgroundColor}" v-if="show">
             <button class="toast-close-button" role="button" @click="hideToastr" v-if="closeButton">×</button>
             <div class="toast-title">{{title}}</div>
             <div class="toast-message">{{message}}</div>
@@ -55,9 +55,22 @@ export default {
         },
         delay: {
             default: '0'
+        },
+        successColor: {
+            type: String
+        },
+        infoColor: {
+            type: String
+        },
+        warningColor: {
+            type: String
+        },
+        errorColor: {
+            type: String
+        },
+        color: {
+            type: String
         }
-    },
-    created() {
     },
     beforeMount() {
         let toastContainer = document.querySelector(`.cxlt-toastr-container.toast-${this.positionClass}`)
@@ -82,6 +95,22 @@ export default {
         },
         leaveActiveClass() {
             return 'animated ' + this.hideMethod
+        },
+        toastBackgroundColor() {
+            if (this.color) {
+                return this.color
+            } else {
+                if (this.type === 'success' && this.successColor) {
+                    return this.successColor
+                } else if (this.type === 'info' && this.infoColor) {
+                    return this.infoColor
+                } else if (this.type === 'warning' && this.warningColor) {
+                    return this.warningColor
+                } else if (this.type === 'error' && this.errorColor) {
+                    return this.errorColor
+                }
+                return null
+            }
         }
     },
     methods: {
