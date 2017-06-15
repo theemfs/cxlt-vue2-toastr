@@ -213,6 +213,12 @@
                         </span>
                     </p>
                 </div>
+                <div class="field">
+                    <label class="label">Color</label>
+                    <p class="control">
+                        <sketch-picker v-model="colors"></sketch-picker>
+                    </p>
+                </div>
             </div>
             <div class="column">
                 <div class="field">
@@ -258,6 +264,8 @@
 </template>
 
 <script>
+import { Sketch } from 'vue-color'
+
 export default {
     name: 'app',
     data() {
@@ -274,11 +282,19 @@ export default {
                 hideDuration: 1000,
                 delay: 0,
                 timeOut: '1500'
+            },
+            colors: {
+                hex: '#51a351',
+                a: 1
             }
         }
     },
     methods: {
         showToastr() {
+            this.toastr = Object.assign(this.toastr, {
+                color: this.colors.hex
+            })
+            console.log(this.colors.hex)
             switch (this.type) {
                 case 'success':
                     this.$toast.success(this.toastr)
@@ -299,6 +315,40 @@ export default {
         hideToastr() {
             this.$toast.removeAll()
         }
+    },
+    watch: {
+        type(newType) {
+            console.log(newType)
+            switch (newType) {
+                case 'success':
+                    this.colors = {
+                        hex: '#51a351',
+                        a: 1
+                    }
+                    break;
+                case 'info':
+                    this.colors = {
+                        hex: '#2f96b4',
+                        a: 1
+                    }
+                    break;
+                case 'warning':
+                    this.colors = {
+                        hex: '#f89406',
+                        a: 1
+                    }
+                    break;
+                case 'error':
+                    this.colors = {
+                        hex: '#bd362f',
+                        a: 1
+                    }
+                    break;
+            }
+        }
+    },
+    components: {
+        'sketch-picker': Sketch
     }
 }
 </script>
@@ -334,3 +384,4 @@ label.radio {
     margin-left: 0;
 }
 </style>
+
