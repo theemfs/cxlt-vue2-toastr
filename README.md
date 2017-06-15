@@ -29,6 +29,19 @@ var toastrConfigs = {
 }
 Vue.use(CxltToastr, toastrConfigs)
 ```
+下文表格中列举的属性除了color都可在全局配置中使用
+
+另外还可以配置下面四个属性
+
+| 属性           | 类型            | 描述                        |
+| ------------- |:--------------: | --------------------------:|
+| successColor         | String          | success的背景色       |
+| infoColor            | String          | info的背景色       |
+| warningColor         | String          | warning的背景色       |
+| errorColor           | String          | error的背景色       |
+
+需要注意的是，实例的color属性会覆盖全局配置中的color。
+
 ### 引入样式
 ```javascript
 import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
@@ -70,7 +83,8 @@ cxlt-vue2-toastr支持以下方法
 | showDuration  | Number          | 显示动画持续的时间，单位ms，默认1000      |
 | hideDuration  | Number          | 隐藏动画持续的时间，单位ms，默认1000     |
 | delay         | Number          | 显示动画开始之前的延迟，单位ms，默认0，没有延迟 |
-| timeOut       | Number          | toastr显示的时间，单位ms，默认1500 |
+| timeOut       | Number          | toast显示的时间，单位ms，默认1500 |
+| color         | String          | toast的背景色                       |
 
 ### type
 
@@ -183,7 +197,7 @@ cxlt-vue2-toastr支持以下方法
 ## Demo
 [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
 
-![Demo截图](demo.gif)
+![Demo截图](http://cxlt.oss-cn-shanghai.aliyuncs.com/cxlt-vue2-toastr%20demo.png)
 
 ## 运行程序
 先fork项目，然后执行下面的命令
@@ -196,4 +210,4 @@ npm run dev
 
 ## 欢迎我的关注公众号
 
-<img src="./qrcode_for_chengxulvtu.jpg" title="程序旅途公众号二维码" width="150"/>
+<img src="http://cxlt.oss-cn-shanghai.aliyuncs.com/qrcode_for_chengxulvtu.jpg" title="程序旅途公众号二维码" width="150"/>
