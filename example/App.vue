@@ -22,6 +22,11 @@
                             <input type="checkbox" v-model="toastr.closeButton"> Close Button
                         </label>
                     </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="toastr.progressBar"> Progress Bar
+                        </label>
+                    </p>
                 </div>
             </div>
             <div class="column">
@@ -275,6 +280,7 @@ export default {
                 title: 'Toastr Notification',
                 message: 'Gnome & Growl type non-blocking notifications',
                 closeButton: true,
+                progressBar: false,
                 position: 'top right',
                 showMethod: 'fadeIn',
                 hideMethod: 'fadeOut',
