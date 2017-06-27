@@ -76,6 +76,7 @@ cxlt-vue2-toastr支持以下方法
 | title         | String          | 通知的标题                   |
 | message       | String          | 通知的内容                   |
 | closeButton   | Boolean         | 是否显示关闭按钮，默认false    |
+| progressBar   | Boolean         | 默认false    |
 | type          | String          | 通知的类型，默认success       |
 | position      | String          | 通知显示的位置，默认top right  |
 | showMethod    | String          | 显示动画的名称，默认fadeIn     |
