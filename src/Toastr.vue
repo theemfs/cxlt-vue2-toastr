@@ -2,6 +2,7 @@
     <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @after-enter="afterEnter" @before-leave="beforeLeave">
         <div class="toast" :class="['toast-'+type]" :style="{backgroundColor:toastBackgroundColor}" v-if="show">
             <button class="toast-close-button" role="button" @click="hideToastr" v-if="closeButton">×</button>
+            <div class="toast-progress" v-if="progressBar" :style="'width: ' + progress.percent + '%'"></div>
             <div class="toast-title">{{title}}</div>
             <div class="toast-message">{{message}}</div>
         </div>
@@ -14,6 +15,11 @@ export default {
     name: 'CxltToastr',
     data: () => {
         return {
+            progress: {
+                hideEta: 0,
+                percent: 0,
+                intervalId: null
+            },
             show: false
         }
     },
@@ -35,6 +41,10 @@ export default {
         closeButton: {
             type: Boolean,
             default: true
+        },
+        progressBar: {
+            type: Boolean,
+            default: false
         },
         timeOut: {
             default: '1500'
@@ -117,10 +127,18 @@ export default {
         showToastr() {
             this.show = true
             this.sto = setTimeout(() => this.hideToastr(), this.timeOut)
+            if (this.progressBar) {
+                this.progress.hideEta = new Date().getTime() + parseFloat(this.timeOut)
+                this.progress.intervalId = setInterval(() => this.refreshProgress(), 10)
+            }
         },
         hideToastr() {
             clearTimeout(this.sto)
+            clearTimeout(this.progress.intervalId)
             this.show = false
+        },
+        refreshProgress() {
+            this.progress.percent = ((this.progress.hideEta - (new Date().getTime())) / this.timeOut) * 100
         },
         beforeEnter(el) {
             el.style.animationDuration = this.showDuration + 'ms'
