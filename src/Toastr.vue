@@ -159,6 +159,7 @@ export default {
         },
         onClick() {
             this.urlBlank ? window.open(this.url, '_blank') : window.location = this.url
+            this.hideToastr()
         }
     }
 }
